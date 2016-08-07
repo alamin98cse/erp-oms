@@ -31,6 +31,14 @@
 			</div>
 			<div class="row">
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+			{{ Form::label('order_id', 'Order Id') }}
+			</div>
+			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+			{{ Form::text('order_id',$item->order_id) }}
+			</div>
+			</div>
+			<div class="row">
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
 			{{ Form::label('l_status', 'Logical Status') }}
 			</div>
 			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">

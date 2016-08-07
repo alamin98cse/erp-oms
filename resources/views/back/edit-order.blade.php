@@ -6,28 +6,27 @@ Order <h3 class="pull-right" style="margin-top:0px;"># {{ $order->id }}</h3>
  
 @if(count($order)>0)
     <div class="row">
-        <div class="col-xs-12">
-    		<div class="invoice-title">
-    			
-    		</div>
-    		<hr>
-    		<div class="row">
-    			<div class="col-xs-6">
-    				<address>
-        			<strong>Shipped To:</strong><br>
-    					{{ $order->customer()->first()->name }}<br>
-    					{{ $order->customer()->first()->address }}<br>
-    					{{ $order->customer()->first()->city }}<br>
-    					{{ $order->customer()->first()->state }} , {{ $order->customer()->first()->zip }}
-    				</address>
-    			</div>
-    			<div class="col-xs-6 text-right">
-    			<span>Order Date:</span> {{ $order->order_date }} <br>
-		        <span>Order Total:</span> ${{ $order->total }} <br>
-		        <span>Status:</span> {{ $order->status}}
-		      </div>
-    		</div>
-
+       <div class="col-xs-12">
+    	  	<div class="invoice-title"></div>
+    		  <hr>
+    		  <div class="row">
+    			   <div class="col-xs-6">
+    				    <address>
+        			     <strong>Shipped To:</strong><br>
+            					{{ $order->customer()->first()->name }}<br>
+            					{{ $order->customer()->first()->address }}<br>
+            					{{ $order->customer()->first()->city }}<br>
+            					{{ $order->customer()->first()->state }} , {{ $order->customer()->first()->zip }}
+            		</address>
+    			   </div>
+    			   <div class="col-xs-6 text-right">
+    			        <span>Order Date:</span> {{ $order->order_date }} <br>
+      		        <span>Order Total:</span> ${{ $order->total }} <br>
+      		        <span>Status:</span> {{ $order->status}}
+      		   </div>
+    		  </div>
+  </div>
+  </div>
        
   @endif
 
@@ -72,6 +71,7 @@ Order <h3 class="pull-right" style="margin-top:0px;"># {{ $order->id }}</h3>
          </table>
         </div>
         </div>
+
    @endif
  
 @stop

@@ -95,6 +95,21 @@
     $(document).ready(function() {
     $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
     $('a[href="' + this.location.pathname + '"]').parent().parent().parent().addClass('active open');
+    $('.view-order').click(function(e){
+        e.preventDefault();
+        var id = $(this).data('id');
+        var url = window.url+'/admin/order/'+id;
+        
+       $.ajax({
+        url:url,
+        dataType:'text',
+        type:'GET',
+        data:{id:id}
+       }).done(function(data){
+        $('.modal-body').html(data);
+        $('.show-order').click();
+       });
+    });
 });
 
 </script>      

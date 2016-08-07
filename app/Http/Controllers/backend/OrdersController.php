@@ -9,7 +9,7 @@ use App\Models\Item;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class OrderController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -51,7 +51,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::find($id);
+        $items = Item::where('order_id','=',$id)->get();
+        return view('back.show-order',array('order' => $order, 'items' => $items));
     }
 
     /**

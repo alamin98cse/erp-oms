@@ -1,0 +1,12 @@
+[{"order":[{"customer": "Gabriel Jaramillo",
+		"address": "test address",
+		"email":"alamin16au@gmail.com",
+		"city" : "Sydney",
+		"state": "NSW",
+		"zip" : "2770",
+		"total": 100,
+		"items": [{ "sku": "TESTSKU1", "quantity": 2 },
+					{ "sku": "TESTSKU2", "quantity": 1 }
+				 ]
+		}]
+}]

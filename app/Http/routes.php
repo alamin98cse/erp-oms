@@ -18,7 +18,7 @@ Route::get('order', 'frontend\SaleController@order');
 //Route::group(array('middleware' => 'auth'), function(){
 Route::resource('admin/order','backend\OrdersController');
 //Route::get('admin/products', 'backend\ProductsController@index');
-Route::resource('admin/product', 'ProductsController');
+Route::resource('admin/product', 'backend\ProductsController');
 Route::resource('admin/category', 'backend\CategoriesController');
 Route::resource('admin/item', 'backend\ItemsController');
 Route::resource('admin/customer', 'backend\CustomersController');
