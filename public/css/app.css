@@ -1,0 +1,220 @@
+body,html{
+    height: 100%;
+  }
+
+  nav.sidebar, .main{
+    -webkit-transition: margin 200ms ease-out;
+      -moz-transition: margin 200ms ease-out;
+      -o-transition: margin 200ms ease-out;
+      transition: margin 200ms ease-out;
+  }
+
+  .main{
+    padding: 10px 10px 0 10px;
+  }
+
+ @media (min-width: 765px) {
+
+    .main{
+      position: absolute;
+      width: calc(100% - 40px); 
+      margin-left: 40px;
+      float: right;
+    }
+
+    nav.sidebar:hover + .main{
+      margin-left: 200px;
+    }
+
+    nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+      margin-left: 0px;
+    }
+
+    nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
+      text-align: center;
+      width: 100%;
+      margin-left: 0px;
+    }
+    
+    nav.sidebar a{
+      padding-right: 13px;
+    }
+
+    nav.sidebar .navbar-nav > li:first-child{
+      border-top: 1px #e5e5e5 solid;
+    }
+
+    nav.sidebar .navbar-nav > li{
+      border-bottom: 1px #e5e5e5 solid;
+    }
+
+    nav.sidebar .navbar-nav .open .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
+      padding: 0 0px 0 0px;
+    }
+
+    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+      color: #777;
+    }
+
+    nav.sidebar{
+      width: 200px;
+      height: 100%;
+      margin-left: -160px;
+      float: left;
+      margin-bottom: 0px;
+    }
+
+    nav.sidebar li {
+      width: 100%;
+    }
+
+    nav.sidebar:hover{
+      margin-left: 0px;
+    }
+
+    .forAnimate{
+      opacity: 0;
+    }
+  }
+   
+  @media (min-width: 1330px) {
+
+    .main{
+      width: calc(100% - 200px);
+      margin-left: 200px;
+    }
+
+    nav.sidebar{
+      margin-left: 0px;
+      float: left;
+    }
+
+    nav.sidebar .forAnimate{
+      opacity: 1;
+    }
+  }
+
+  nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
+    color: #CCC;
+    background-color: transparent;
+  }
+
+  nav:hover .forAnimate{
+    opacity: 1;
+  }
+  section{
+    padding-left: 15px;
+  }
+  
+ 
+.box-inner {
+    border: 1px solid #DEDEDE;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
+    -webkit-box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
+    -moz-box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
+}
+
+.box-header {
+    border: none;
+    padding-top: 5px;
+    border-bottom: 1px solid #DEDEDE;
+    border-radius: 3px 3px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    height: 35px;
+    min-height: 35px !important;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 16px;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.1)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#1a000000', GradientType=0);
+
+}
+
+.box-header h2 {
+    font-size: 15px;
+    width: auto;
+    clear: none;
+    float: left;
+    line-height: 25px;
+    white-space: nowrap;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.box-header h3 {
+    font-size: 13px;
+    width: auto;
+    clear: none;
+    float: left;
+    line-height: 25px;
+    white-space: nowrap;
+}
+
+.box-header h2 > i {
+    margin-top: 1px;
+}
+
+.box-icon {
+    float: right;
+}
+
+.box-icon a {
+    clear: none;
+    float: left;
+    margin: 0 2px;
+    height: 20px;
+    width: 5px;
+    margin-top: 1px;
+}
+
+.box-icon a i {
+    margin-left: -6px;
+    top: -1px;
+}
+
+.box-content {
+    padding: 10px;
+}
+
+
+.invoice-title h2, .invoice-title h3 {
+    display: inline-block;
+}
+
+.table > tbody > tr > .no-line {
+    border-top: none;
+}
+
+.table > thead > tr > .no-line {
+    border-bottom: none;
+}
+
+.table > tbody > tr > .thick-line {
+    border-top: 2px solid;
+}
+
+#footer {
+  height: 60px;
+  background-color: #f4d072;
+}
