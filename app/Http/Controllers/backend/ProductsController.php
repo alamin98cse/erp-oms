@@ -96,15 +96,8 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(),$this->rules );
-          if ($validator->fails()) 
-          {
-            return back()->withErrors($validator)
-                         ->withInput();
-          }
         Product::where('id','=',$id)
-                 ->update(array('sku' => $request->sku,
-                                'color' => $request->color,
+                 ->update(array('color' => $request->color,
                                 'description' => $request->description,
                                 'catId' => $request->catId,
                                 'unit_price' => $request->unit_price));

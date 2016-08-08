@@ -1,7 +1,7 @@
 @extends("layouts.admin")
 
 @section('formTitle')
-    New Product Entry 
+    Update Product 
 @endsection
 
 @section("content")
@@ -18,7 +18,7 @@
 			{{ Form::label('SKU', 'SKU') }}
 			</div>
 			<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-			{{ Form::text('sku',$product->sku) }}
+			{{ Form::text('sku',$product->sku,array('disabled')) }}
 			</div>
 			</div>
 			<div class="row">

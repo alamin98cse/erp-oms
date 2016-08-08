@@ -77,12 +77,6 @@ class CustomersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(),$this->rules );
-          if ($validator->fails()) 
-          {
-            return back()->withErrors($validator)
-                         ->withInput();
-          }
         Customer::where('id','=',$id)->update(array('name' => $request->name,
                                                     'address' => $request->address,
                                                     'email' => $request->email,
