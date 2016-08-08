@@ -1,27 +1,14 @@
-# Laravel PHP Framework
-
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
-
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
-
-## Official Documentation
-
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+1. How to setup
+   1.1. place whole application in web server. use appropriate value of parameters in .env 
+        APP_URL=http://erp.dev  -- replace with exact domain
+		DB_CONNECTION=mysql
+		DB_HOST=127.0.0.1
+		DB_PORT=3306          -- Database port on which mysql running
+		DB_DATABASE=erp       -- create a blank database in mysql and put the database name here
+		DB_USERNAME=root      -- database user name 
+		DB_PASSWORD=          -- database user password
+		MAIL_USERNAME=alamin16au@gmail.com   -- set sender email address
+		MAIL_PASSWORD=xxxxxx                 -- password to authenticate 
+	1.2. run 'php artisan migrate' and 'php artisan db:seed --class=Categories' . This will create tables with proper  relationship.
+	1.3. The application holding an order.json file containing sample order in ../public direcorty. Right now application will read order from this file. When this application will be atached with the third-party application from where order will come it need to change .	
+	

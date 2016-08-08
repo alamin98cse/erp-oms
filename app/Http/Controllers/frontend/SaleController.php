@@ -20,6 +20,7 @@ class SaleController extends Controller
    { 
    	  $rawOrders = file_get_contents('order.json');
       $orderList = json_decode($rawOrders);
+      //$orderList = Request::all(); /* This will be use to get data from third-party application */
       foreach($orderList[0]->order as $order)
        {  
 
@@ -42,10 +43,14 @@ class SaleController extends Controller
       	  	                                     "zip" => $order->zip
       	  	                                     ));
       }
-      $order_id = Order::insertGetId(array("custId" => $cust_id,
-      	                                   "total" => $order->total,
-      	                                   "status" => "In Progress",
-      	                                   "order_date" => Carbon::now()));
+      if(count($order->items)>0)
+      {
+        $order_id = Order::insertGetId(array("custId" => $cust_id,
+                                           "total" => $order->total,
+                                           "status" => "In Progress",
+                                           "order_date" => Carbon::now()));
+      
+      }
       foreach($order->items as $item)
       {
             
@@ -77,12 +82,14 @@ class SaleController extends Controller
 
                 $subject = 'A new product created!!';
                 $to = array('alamin16au@gmail.com',);
+                $message = '';
 		        try{
-		        	$url = getenv(APP_URL).'/admin/product/'.$product.'/edit';
-		            Mail::send('emails.new-product', array('url'=>$url,'messageContent' => $message), function($message) use($to, $subject){
+		        	$url = $_SERVER['SERVER_NAME'].'/admin/product/'.$product.'/edit';
+		            \Mail::send('emails.new-product', array('url'=>$url,'messageContent' => $message), function($message) use($to, $subject){
 		              $address = [];
 		              foreach($to as $email){
 		                if($email != ''){
+                      $message->from('alamin16au@gmail.com', 'Admin');
 		                  $message->to($to)->subject($subject);
 		                  $address[] = $email;
 		                }

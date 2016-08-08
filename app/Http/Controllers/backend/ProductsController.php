@@ -54,11 +54,11 @@ class ProductsController extends Controller
                          ->withInput();
           }
          $product = new Product;
-         $product->create(array('sku' => $request->input('sku'),
-                                'color' => $request->input('color'),
-                                'description' => $request->input('description'),
-                                'catId' => $request->input('catId'),
-                                'unit_price' => $request->input('unit_price')));
+         $product->create(array('sku' => $request->sku,
+                                'color' => $request->color,
+                                'description' => $request->description,
+                                'catId' => $request->catId,
+                                'unit_price' => $request->unit_price));
         // $cat = get_object_vars(json_decode(Category::lists('name','id')));
          return back();
     }
@@ -103,11 +103,11 @@ class ProductsController extends Controller
                          ->withInput();
           }
         Product::where('id','=',$id)
-                 ->update(array('sku' => $request->input('sku'),
-                                'color' => $request->input('color'),
-                                'description' => $request->input('description'),
-                                'catId' => $request->input('catId'),
-                                'unit_price' => $request->input('unit_price')));
+                 ->update(array('sku' => $request->sku,
+                                'color' => $request->color,
+                                'description' => $request->description,
+                                'catId' => $request->catId,
+                                'unit_price' => $request->unit_price));
         // $cat = get_object_vars(json_decode(Category::lists('name','id')));
          return redirect('/admin/product');
     }

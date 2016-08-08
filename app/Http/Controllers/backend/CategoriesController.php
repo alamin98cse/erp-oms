@@ -51,8 +51,8 @@ class CategoriesController extends Controller
           }
 
           $category = new category;
-          $category->create(array("name" => $request->input('name'),
-                                 "description" => $request->input('description')));
+          $category->create(array("name" => $request->name,
+                                 "description" => $request->description));
          return view('back.create-category');
     }
 
@@ -95,8 +95,8 @@ class CategoriesController extends Controller
                          ->withInput();
           }
 
-         Category::where('id','=',$id)->update(array('name' => $request->input('name'),
-                                 'description' => $request->input('description')));
+         Category::where('id','=',$id)->update(array('name' => $request->name,
+                                 'description' => $request->description));
          return redirect('/admin/category');
     }
 

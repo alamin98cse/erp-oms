@@ -50,10 +50,10 @@ class ItemsController extends Controller
         }
         /* Create new Item */
         $item = new Item;
-        $item->create(array('sku' => $request->input('sku'),
-                            'item_code' => $request->input('item_code'),
-                            'l_status' => $request->input('l_status'),
-                            'p_status' => $request->input('p_status')));
+        $item->create(array('sku' => $request->sku,
+                            'item_code' => $request->item_code,
+                            'l_status' => $request->l_status,
+                            'p_status' => $request->p_status));
         return back();
     }
 
@@ -89,9 +89,9 @@ class ItemsController extends Controller
      */
     public function update(Request $request, $id)
     {
-       if($request->input('action') && $request->input('action')=='detach')
+       if($request->action && $request->action=='detach')
        {
-          $order_id = Item::find($id)->order()->first->id;
+          $order_id = Item::find($id)->order_id;
           Item::where('id','=',$id)->update(array('order_id' => 0));  
           /*  Change status to Cancelled if all items are detached */
           $OrderItems = Item::where('order_id','=',$order_id)->get();
@@ -102,23 +102,23 @@ class ItemsController extends Controller
           /* ----------- */
           return back();
        }
-       else if ($request->input('action') && $request->input('action')=='attach') {
-           Item::where('id','=',$id)->update(array('order_id' => $request->input('order_id'))); 
+       else if ($request->action && $request->action=='attach') {
+           Item::where('id','=',$id)->update(array('order_id' => $request->order_id)); 
        }
        else
        {
           $validator = Validator::make($request->all(),$this->rules );
-          if ($validator->fails() || ($request->input('p_status')=='Delivered' && ($request->input('order_id')==0 || $request->input('order_id')==''))) 
+          if ($validator->fails() || ($request->p_status=='Delivered' && ($request->order_id==0 || $request->order_id==''))) 
           {
             return back()->withErrors($validator)
                          ->withInput();
           }
           /* update item */
-          Item::where('id','=',$id)->update(array('sku' => $request->input('sku'),
-                            'item_code' => $request->input('item_code'),
-                            'l_status' => $request->input('l_status'),
-                            'p_status' => $request->input('p_status'),
-                            'order_id' => $request->input('order_id')));
+          Item::where('id','=',$id)->update(array('sku' => $request->sku,
+                            'item_code' => $request->item_code,
+                            'l_status' => $request->l_status,
+                            'p_status' => $request->p_status,
+                            'order_id' => $request->order_id));
           return redirect('/admin/item');
        }
       
@@ -138,11 +138,11 @@ class ItemsController extends Controller
     public function update_field(Request $request)
     {
        $row = 1;
-       if($request->input('p_status')=='Delivered')
+       
+       if($request->val=='Delivered')
        {
         $row = Item::where('id','=',$request->id)
             ->where('order_id','<>','0')->update(array($request->col => $request->val)); 
-            echo $row;
        }
        else
        {
@@ -168,6 +168,6 @@ class ItemsController extends Controller
         if($row>0)    
               echo 'Field '.$request->col." updated successfully";
          else
-              echo 'Field '.$request->col." was not updated";       
+              echo 'Item is not attached with any order!!';       
     }
 }
